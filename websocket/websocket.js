@@ -8,6 +8,12 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+  socket.on('chat', (msg) => {
+    console.log(msg);
+  }); 
 });
 
 http.listen(3000, function(){

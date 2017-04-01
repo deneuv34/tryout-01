@@ -12,13 +12,14 @@ import {
   View,
   WebSocket,
 } from 'react-native';
-import * as socket from 'react-native-socketio'
-
-var io = new socket('http://192.168.56.1:3000/');
+import io from 'socket.io-client'
 
 export default class websocketTryout extends Component {
   componentDidMount() {
-    io.connect();
+  var socket = new io('http://192.168.56.1:3000/');
+    socket.on('connect', function(){
+     socket.emit('chat', 'message from react native');
+    });
   }
   
   render() {
