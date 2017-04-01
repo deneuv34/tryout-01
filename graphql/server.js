@@ -6,27 +6,23 @@ const { buildSchema } = require('graphql');
 // Construct a schema using GraphQL
 var schema = buildSchema(`
   type Query {
-    name(first: String!, last: String): String
-    chat(data: String): String
+    name: String
   }
 `); // String! symbol mean is String cannot be null
 
 // The root provide a resolver function for each of API endpoint
 var root = {
-  name: ({first, last}) => {
-    return first+' '+last;
+  name: () => {
+    return 'Halo nama saya adalah Rangga';
   },
-  chat: ({ data }) => {
-    return data;
-  }
 };
 
 var app = express();
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: root,
-  graphiql: true,
+  graphiql: false,
 }));
 
-app.listen(8081);
-console.log('Runing a graphql API Server in localhost:8081/graphql');
+app.listen(4000);
+console.log('Runing a graphql API Server in localhost:4000/graphql');
