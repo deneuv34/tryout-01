@@ -13,18 +13,33 @@ import {
 } from 'react-native';
 
 export default class graphQl_Client extends Component {
+  constructor() {
+    super();
+    this.state = {
+      value: '',
+    }
+  }
+  componentDidMount() {
+    this.getData()
+  }
+
+  getData() {
+    fetch('http://192.168.56.1:4000/graphql?query={%20name%20}')
+    .then(resp => {
+      let response = JSON.parse(resp._bodyText)
+      this.setState({ value: response.data.name });
+    })
+    .catch()
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+         GET RESPONSE FROM SERVER
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
+          RESPONSE: {this.state.value}
         </Text>
       </View>
     );
