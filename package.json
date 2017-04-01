@@ -1,0 +1,21 @@
+{
+  "name": "latihan1",
+  "version": "0.0.1",
+  "description": "latihan init",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "graphql",
+    "express"
+  ],
+  "author": "Rangga Adhitya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "express-graphql": "^0.6.3",
+    "graphql": "^0.9.1",
+    "socket.io": "^1.7.3"
+  }
+}
