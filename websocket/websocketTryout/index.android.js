@@ -12,35 +12,15 @@ import {
   View,
   WebSocket,
 } from 'react-native';
+import * as socket from 'react-native-socketio'
+
+var io = new socket('http://192.168.56.1:3000/');
 
 export default class websocketTryout extends Component {
   componentDidMount() {
+    io.connect();
   }
-
-  webSock() {
-    var ws = new WebSocket('ws://192.168.56.1:3000/');
-
-    ws.onopen = () => {
-      // connection opened
-
-      ws.send('something'); // send a message
-    };
-
-    ws.onmessage = (e) => {
-      // a message was received
-      console.log(e.data);
-    };
-
-    ws.onerror = (e) => {
-      // an error occurred
-      console.log(e.message);
-    };
-
-    ws.onclose = (e) => {
-      // connection closed
-      console.log(e.code, e.reason);
-    };
-  }
+  
   render() {
     return (
       <View style={styles.container}>

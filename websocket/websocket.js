@@ -1,23 +1,16 @@
-var express = require('express');
-var app = express();
-var expressWs = require('express-ws')(app);
- 
-app.use(function (req, res, next) {
-  console.log('middleware');
-  req.testing = 'testing';
-  return next();
+const app = require('express')();
+const http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
 });
- 
-app.get('/', function(req, res, next){
-  console.log('user connected', req.testing);
-  res.end();
+
+io.on('connection', function(socket){
+  console.log('a user connected');
 });
- 
-app.ws('/', function(ws, req) {
-  ws.on('message', function(msg) {
-    console.log(msg);
-  });
-  console.log('socket', req.testing);
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
- 
-app.listen(3000);
+    

@@ -6,7 +6,8 @@ email: deneuv3.4@gmail.com
 for first install use `npm install`
 
 ### Yield / Generator
-just navigate to yield folder and run the `yield.js` using
+just navigate to yield folder and inside the code define the dir path that you want to lookup
+then use command below to run:
 ```
 node yield.js
 ```
