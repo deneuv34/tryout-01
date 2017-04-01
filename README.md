@@ -20,5 +20,9 @@ This app will show all files inside folder using Javascript Generator & yield
 
 This app will show response the data in server
 
+### Websocket
+- For server you just run `websocket.js` 
+- For client ...
+
 ## License
 MIT
