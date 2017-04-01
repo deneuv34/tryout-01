@@ -19,7 +19,7 @@ This app will show all files inside folder using Javascript Generator & yield
 - Build  the client app with `react-native run-start` then `react-native run-android`
 
 This app will show response the data in server
-![alt tag](https://github.com/deneuv34/tryout-01/blob/master/Selection_016.png)
+- ![alt tag](https://github.com/deneuv34/tryout-01/blob/master/Selection_016.png)
 
 ### Websocket
 - For server you just run `websocket.js` 
